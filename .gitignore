@@ -1,8 +1,7 @@
 # Byte-compiled / optimized / DLL files
 *.py[cod]
 __pycache__/
-
-.Jasmine
+.phoenix
 .idea
 .env
 *.sqlite3

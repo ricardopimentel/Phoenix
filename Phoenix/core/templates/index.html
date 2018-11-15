@@ -14,6 +14,20 @@
 {%endblock%}
 	
 {%block conteudo%}
-
+    <div class="card">
+        <img src="{% static 'images/codigo.png' %}" alt="">
+        <h1>Empresas</h1>
+        {% for i in menu %}
+            <a href="{{ i.url }}">{{ i.titulo }}</a><br>
+        {% endfor %}
+    </div>
+    <div class="card">
+        <img src="{% static 'images/codigo.png' %}" alt="">
+        <h1>Formulario</h1>
+    </div>
+    <div class="card">
+        <img src="{% static 'images/codigo.png' %}" alt="">
+        <h1>Olá</h1>
+    </div>
 {%endblock%}
 

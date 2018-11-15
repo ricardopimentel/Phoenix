@@ -1,25 +1,156 @@
+/* Styles Colors */
+:root{
+
+	--primary-light: #009688;
+	--primary: #00796b;
+	--primary-middle: #00695c;
+	--primary-dark: #004d40;
+	--accent: #ad7fa8;
+	--accent-dark: #75507b;
+	--accent-light: #c192bc;
+
+}
+
 body{
     width: 100%;
     height: 100%;
     background: white;
     margin: 0px;
 }
+
+.bar-top{
+    width: 100%;
+    height: 25px;
+    position: fixed;
+    top: 0px;
+    background: var(--primary-middle);
+    border-top: 10px solid var(--primary-dark);
+    z-index: auto;
+}
+
 .header{
     width: 100%;
     height: 200px;
     box-shadow: 1px 1px 20px 1px #888888;
     border-radius: 0px 0px 10px 10px;
+    background: var(--primary-light) url(../images/background-header.png);
     text-align: center;
-    border-bottom: 5px solid green;
+    border-bottom: 5px solid var(--primary-dark);
 }
 
 .logo{
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     border-radius: 100%;
     box-shadow: 1px 1px 20px 1px #888888;
     display: inline-block;
     background: white;
-    border-bottom: 5px solid green;
-    border-top: 5px solid red;
+    z-index: auto;
+}
+
+.logo img{
+    width: 100%;
+    overflow: hidden;
+    border-radius: 100%;
+}
+
+.menu-item{
+    width: 80px;
+    height: 80px;
+    box-shadow: 1px 1px 4px 0px #888888;
+    border-radius: 100%;
+    display: inline-block;
+    background: white;
+}
+
+.container-conteudo{
+    background: green;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    justify-content: center;
+    background: #ffffff url(../images/noise.png);
+    margin-top: 55px;
+}
+
+.card{
+	width:21em;
+	background: #ffffff;
+	box-shadow: 1px 1px 3px #888;
+	border-top: 5px solid var(--primary-dark);
+	padding: 10px;
+	margin: 5px 10px 5px 10px;
+	border-radius: 10px 10px 0px 0px;
+	display: inline-block;
+}
+
+.card img{
+	border-radius: 50%;
+	width: 70px;
+	margin-bottom: 30px;
+}
+
+.card h1{
+	font-family: serif;
+	font-size: 1.5em;
+	text-align: center;
+	font-weight: lighter;
+	margin-left: 50px;
+	margin-top: -70px;
+}
+
+.card p{
+	margin: 10px;
+	font-family: segoe ui;
+	line-height: 1.4em;
+	font-size: 1.2em;
+}
+
+.card h4{
+	margin: 10px;
+	font-family: segoe ui;
+	line-height: 1.4em;
+	font-size: 1.2em;
+	text-align: justify;
+	font-weight: normal;
+}
+
+.card table{
+    margin: 0px;
+    padding: 5px;
+    width: 100%;
+	font-family: segoe ui;
+}
+
+.card td {
+	border: none;
+	text-align: left;
+	padding: 2px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.card td + td, th +td{
+	text-align: right;
+}
+
+.card a {
+	text-decoration:none;
+	color: #000000;
+}
+
+.card a:hover {
+	text-decoration:none;
+	background-color: #f4f4ff;
+	color: #000000;
+	border-bottom: 3px solid #EA0000;
+}
+
+.footer-bar{
+    background: var(--primary-dark);
+    width: 100%;
+    text-align: center;
+    color: white;
+    position: fixed;
+    bottom: 0px;
 }

@@ -1,0 +1,51 @@
+<meta charset="UTF-8"/>
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load phoenix_extras %}
+{% load pagination_tags %}
+{%block titulo%}{{title}}{%endblock%}
+
+{%block top%}
+
+{%endblock%}
+
+{%block menu%}
+
+{%endblock%}
+	
+{%block conteudo%}
+    <div class="cartao">
+        <img id="icone-card" src="{% static 'images/codigo.png' %}" alt="">
+        <h1>Equipamentos</h1>
+
+        <div class="navegation-bar">
+            <a href="{% url 'Home' %}">Home</a>
+        </div>
+        <div class="action-bar">
+            <a href="{% url 'CadastroEquipamento' %}" title="Cadastrar um Novo Equipamento"><img src="{% static 'images/add24b.png' %}" onmouseover="this.src='{% static 'images/add24.png' %}'" onmouseout="this.src='{% static 'images/add24b.png' %}'"></a>
+        </div>
+
+        <div class="container-conteudo-cartao">
+            {% for item in dados %}
+                <div class="item-container">
+                    <img src="{% static item.imagem %}">
+                    <div class="status-container">
+                        <div class="status" title="Status: Online"></div>
+                    </div>
+                    <p><b>Descrição: </b>{{ item.descricao }}</p>
+                    <p><b>Marca: </b>{{ item.id_marca }}</p>
+                    <p><b>Modelo: </b>{{ item.id_modelo }}</p>
+                    <p><b>Sala: </b>{{ item.id_sala }}</p>
+                    <p><b>Bloco: </b></p>
+                    <div class="gaveta">
+                        <p style="text-align: center">Mais</p>
+                        <p>Licença:</p>
+                        <p>IP:</p>
+                        <p>Mac:</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{%endblock%}
+

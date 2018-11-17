@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Phoenix.core',
+    'Phoenix.devices',
+    'Phoenix.config',
 ]
 
 MIDDLEWARE = [

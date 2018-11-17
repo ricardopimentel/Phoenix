@@ -73,6 +73,7 @@ class equipamento(models.Model):
     id_sala = models.ForeignKey('Sala', sala)
     id_marca = models.ForeignKey('Marca', marca)
     id_modelo = models.ForeignKey('Modelo', modelo)
+    imagem = models.ImageField('Imagem', upload_to='uploads/', default='uploads/default.png')
     status = models.BooleanField('Ativo?', default=True)
 
 

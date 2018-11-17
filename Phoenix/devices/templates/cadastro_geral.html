@@ -15,9 +15,9 @@
 	
 {%block conteudo%}
     <div class="cartao">
-        <img src="{% static 'images/codigo.png' %}" alt="">
+        <img id="icone-card" src="{% static 'images/codigo.png' %}" alt="">
         <h1>Formulario</h1>
-        <form method="POST">{% csrf_token %}
+        <form method="POST" enctype="multipart/form-data">{% csrf_token %}
             {{ form.as_p }}
             <button type="submit">Salvar</button>
         </form>

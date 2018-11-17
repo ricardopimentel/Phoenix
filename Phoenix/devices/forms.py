@@ -26,7 +26,7 @@ class SalaForm(forms.ModelForm):
 class EquipamentoForm(forms.ModelForm):
     class Meta:
         model = equipamento
-        fields = ('descricao', 'num_serie', 'ip', 'mac', 'licenca', 'tipo', 'monitorado', 'id_sala', 'id_marca', 'id_modelo', 'status')
+        fields = ('descricao', 'imagem','num_serie', 'ip', 'mac', 'licenca', 'tipo', 'monitorado', 'id_sala', 'id_marca', 'id_modelo', 'status')
 
 
 class MarcaForm(forms.ModelForm):

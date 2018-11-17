@@ -20,6 +20,8 @@
         {% for i in menu %}
             <a href="{{ i.url }}">{{ i.titulo }}</a><br>
         {% endfor %}
+        <br><br>
+        <a href="{% url 'GerenciarEquipamentos' %}">Gerenciar Equipamentos</a><br>
     </div>
     <div class="card">
         <img src="{% static 'images/codigo.png' %}" alt="">

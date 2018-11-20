@@ -20,12 +20,12 @@
             <h1>Equipamentos</h1>
         </div>
         <div class="menu-cartao">
-            <input type="text" name="fname">
+            <input type="text" name="fname" placeholder="Pesquisa">
             <select name="carlist" form="carform">
+                <option value="audi">Todas as Salas</option>
                 <option value="volvo">CGTI</option>
                 <option value="saab">Sala 01</option>
                 <option value="opel">Sala 02</option>
-                <option value="audi">Sala 03</option>
             </select>
         </div>
 
@@ -35,8 +35,11 @@
 
         <div class="container-conteudo-cartao">
             {% for item in dados %}
-                <div class="item-container">
-                    <img src="{{ MEDIA_URL }}{{item.imagem.url }}">
+                <div id="item-{{ item.id }}" class="item-container">
+                    <div class="personal-checkbox"></div>
+                    <input class="item-check" id="{{ item.id }}" type="checkbox" name="{{ item.id }}" value="{{ item.id }}">
+                    <label for="{{ item.id }}"><img src="{{item.imagem.url }}" onclick="check('{{ item.id }}')"></label>
+
                     <div class="status-container">
                         <div class="status" title="Status: Online"></div>
                     </div>
@@ -61,5 +64,14 @@
         <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #01a75b"><img src="{% static 'images/add24.png' %}"/> </div></a>
         <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #f39c11"><img src="{% static 'images/edit24.png' %}"/> </div></a>
     </div>
-{%endblock%}
 
+    <script>
+        function check(id) {
+            if(document.getElementById(id).checked == false) {
+                document.getElementById('item-' + id).style.backgroundColor = '#9ed0d0';
+            }else{
+                document.getElementById('item-' + id).style.backgroundColor = '#ffffff';
+            }
+        }
+    </script>
+{%endblock%}

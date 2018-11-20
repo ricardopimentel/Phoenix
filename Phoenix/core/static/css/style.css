@@ -242,9 +242,18 @@ body{
     text-align: right;
 }
 
-.menu-cartao input+select{
+.menu-cartao input{
     background: var(--primary-light);
     margin: 2px;
+    border: 1px solid var(--primary-dark);
+    color: white;
+}
+
+.menu-cartao select{
+    background: var(--primary-light);
+    margin: 2px;
+    border: 1px solid var(--primary-dark);
+    color: white;
 }
 
 #icone-card{
@@ -316,6 +325,15 @@ body{
     margin: 10px;
     border-radius: 10px 10px 0px 0px;
     box-shadow: 1px 1px 5px 0px #888;
+    -webkit-transition: all .6ms ease-in-out;
+    -moz-transition: all .6s ease-in-out;
+    -ms-transition: all .6s ease-in-out;
+    -o-transition: all .6s ease-in-out;
+    transition: all .6s ease-in-out;
+}
+
+.item-container:hover{
+    box-shadow: 1px 1px 14px 0px #888;
 }
 
 .item-container img{
@@ -330,6 +348,10 @@ body{
     margin: 0px 0px 0px 10px;
     display: block;
     z-index: 0;
+}
+
+.item-check{
+    display: none;
 }
 
 .status-container{

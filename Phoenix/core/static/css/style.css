@@ -164,20 +164,20 @@ body{
 	max-width: 90%;
 	box-shadow: 1px 1px 3px #888;
 	border-top: 5px solid var(--primary-dark);
-	padding: 10px;
 	margin: 5px;
 	border-radius: 10px 10px 0px 0px;
 	display: inline-block;
-	padding-bottom: 20px;
+    margin-bottom: 50px;
 }
 
 .cartao h1{
-	font-family: serif;
-	font-size: 1.5em;
+	font-family: 'Stint Ultra Expanded', cursive;
+	font-size: 2em;
 	text-align: center;
 	font-weight: lighter;
 	margin-left: 50px;
 	margin-top: -70px;
+    color: var(--primary-dark);
 }
 
 .cartao p{
@@ -221,6 +221,32 @@ body{
     text-align: right;
 }
 
+.header-cartao{
+    width: 100%;
+    height: 90px;
+    background: var(--primary-light);
+    border-radius: 5px 5px 0px 0px;
+}
+
+.header-cartao h1{
+    color: white;
+}
+
+.header-cartao img{
+    margin: 10px;
+}
+
+.menu-cartao{
+    width: 100%;
+    background: var(--primary-middle);
+    text-align: right;
+}
+
+.menu-cartao input+select{
+    background: var(--primary-light);
+    margin: 2px;
+}
+
 #icone-card{
     width: 70px;
 	border-radius: 50%;
@@ -242,6 +268,8 @@ body{
 	padding: 5px;
 	background: var(--accent);
 	border-radius: 10px 10px 10px 10px;
+    trasition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
 }
 
 .navegation-bar a:HOVER{
@@ -292,6 +320,7 @@ body{
 
 .item-container img{
     width: 100%;
+	height: 220px;
     border-radius: 10px 10px 0px 0px;
     border-bottom: 5px solid var(--primary-dark);
     z-index: 0;
@@ -346,5 +375,35 @@ body{
 	flex-direction: row;
 	flex-wrap: wrap;
     justify-content: center;
-    margin-top: 55px;
+    margin-top: 15px;
+    padding: 0px 30px 0px 30px;
+}
+
+.float-menu-cartao{
+    width: 30px;
+    height: 150px;
+    position: relative;
+}
+
+.float-menu-cartao-item{
+    width: 24px;
+    height: 24px;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 100%;
+    trasition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    box-shadow: 1px 1px 3px #888;
+    text-align: center;
+}
+
+.float-menu-cartao-item img{
+    width: 100%;
+    height: 100%;
+}
+
+.float-menu-cartao-item:hover{
+    border: 5px solid white;
+    cursor: pointer;
+    padding: 10px;
 }

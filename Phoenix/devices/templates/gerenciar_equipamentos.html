@@ -15,20 +15,28 @@
 	
 {%block conteudo%}
     <div class="cartao">
-        <img id="icone-card" src="{% static 'images/codigo.png' %}" alt="">
-        <h1>Equipamentos</h1>
+        <div class="header-cartao">
+            <img id="icone-card" src="{% static 'images/codigo.png' %}" alt="">
+            <h1>Equipamentos</h1>
+        </div>
+        <div class="menu-cartao">
+            <input type="text" name="fname">
+            <select name="carlist" form="carform">
+                <option value="volvo">CGTI</option>
+                <option value="saab">Sala 01</option>
+                <option value="opel">Sala 02</option>
+                <option value="audi">Sala 03</option>
+            </select>
+        </div>
 
         <div class="navegation-bar">
             <a href="{% url 'Home' %}">Home</a>
-        </div>
-        <div class="action-bar">
-            <a href="{% url 'CadastroEquipamento' %}" title="Cadastrar um Novo Equipamento"><img src="{% static 'images/add24b.png' %}" onmouseover="this.src='{% static 'images/add24.png' %}'" onmouseout="this.src='{% static 'images/add24b.png' %}'"></a>
         </div>
 
         <div class="container-conteudo-cartao">
             {% for item in dados %}
                 <div class="item-container">
-                    <img src="{% static item.imagem %}">
+                    <img src="{{ MEDIA_URL }}{{item.imagem.url }}">
                     <div class="status-container">
                         <div class="status" title="Status: Online"></div>
                     </div>
@@ -42,10 +50,16 @@
                         <p>Licença:</p>
                         <p>IP:</p>
                         <p>Mac:</p>
+                        <p>Nome:</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
+    </div>
+    <div class="float-menu-cartao">
+        <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #dd4c37"><img src="{% static 'images/delete24.png' %}"/> </div></a>
+        <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #01a75b"><img src="{% static 'images/add24.png' %}"/> </div></a>
+        <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #f39c11"><img src="{% static 'images/edit24.png' %}"/> </div></a>
     </div>
 {%endblock%}
 

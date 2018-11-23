@@ -17,7 +17,19 @@ def cadastro_empresa(request):
 
 def gerenciar_equipamentos(request):
     dados = equipamento.objects.all()
-    return render(request, 'gerenciar_equipamentos.html',{'dados': dados})
+    checkboxes = []
+    if request.method == 'POST':
+        for i in dados:
+            try:
+                checkboxes.append(request.POST[str(i.id)])
+            except:
+                pass
+    if checkboxes:
+        for item in checkboxes:
+            dados.filter(id=item).delete()
+            messages.success(request, "Exclusão Realizada com Sucesso!")
+            return redirect(r('GerenciarEquipamentos'))
+    return render(request, 'gerenciar_equipamentos.html', {'dados': dados})
 
 
 def cadastro_bloco(request):
@@ -71,7 +83,7 @@ def cadastro_equipamento(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Configurações salvas com sucesso!')
-            return redirect(r('Home'))
+            return redirect(r('CadastroEquipamento'))
     return render(request, 'cadastro_geral.html', {'form': form})
 
 

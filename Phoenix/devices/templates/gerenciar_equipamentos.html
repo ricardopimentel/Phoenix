@@ -14,64 +14,103 @@
 {%endblock%}
 	
 {%block conteudo%}
-    <div class="cartao">
-        <div class="header-cartao">
-            <img id="icone-card" src="{% static 'images/codigo.png' %}" alt="">
-            <h1>Equipamentos</h1>
-        </div>
-        <div class="menu-cartao">
-            <input type="text" name="fname" placeholder="Pesquisa">
-            <select name="carlist" form="carform">
-                <option value="audi">Todas as Salas</option>
-                <option value="volvo">CGTI</option>
-                <option value="saab">Sala 01</option>
-                <option value="opel">Sala 02</option>
-            </select>
-        </div>
+    <form class="form-geral" method="POST" action="{% url 'GerenciarEquipamentos' %}">{% csrf_token %}
+        <div class="cartao">
+            <div class="header-cartao">
+                <img id="icone-card" src="{% static 'images/codigo.png' %}" alt="">
+                <h1>Equipamentos</h1>
+            </div>
+            <div class="menu-cartao">
+                <input type="text" name="fname" placeholder="Pesquisa">
+                <select name="carlist" form="carform">
+                    <option value="audi">Todas as Salas</option>
+                    <option value="volvo">CGTI</option>
+                    <option value="saab">Sala 01</option>
+                    <option value="opel">Sala 02</option>
+                </select>
+            </div>
 
-        <div class="navegation-bar">
-            <a href="{% url 'Home' %}">Home</a>
-        </div>
+            <div class="navegation-bar">
+                <a href="{% url 'Home' %}">Home</a>
+            </div>
 
-        <div class="container-conteudo-cartao">
-            {% for item in dados %}
-                <div id="item-{{ item.id }}" class="item-container">
-                    <div class="personal-checkbox"></div>
-                    <input class="item-check" id="{{ item.id }}" type="checkbox" name="{{ item.id }}" value="{{ item.id }}">
-                    <label for="{{ item.id }}"><img src="{{item.imagem.url }}" onclick="check('{{ item.id }}')"></label>
-
-                    <div class="status-container">
-                        <div class="status" title="Status: Online"></div>
+            <div class="container-conteudo-cartao">
+                {% for item in dados %}
+                    <div id="item-{{ item.id }}" class="item-container">
+                        <div class="personal-checkbox"></div>
+                        <img src="{{item.imagem.url }}">
+                        <div class="status-container">
+                            <div class="status" title="Status: Online"></div>
+                            <input class="item-checkbox" id="{{ item.id }}" type="checkbox" name="{{ item.id }}" value="{{ item.id }}">
+                            <label class="item-checkbox-super" for="{{ item.id }}" onclick="check('{{ item.id }}')">
+                                <div title="Clique para selecionar o equipamento">
+                                    <img id="img-{{ item.id }}" src="{% static 'images/checkboxunchecked24b.png' %}"></img>
+                                </div>
+                            </label>
+                        </div>
+                        <p><b>Descrição: </b>{{ item.descricao }}</p>
+                        <p><b>Marca: </b>{{ item.id_marca }}</p>
+                        <p><b>Modelo: </b>{{ item.id_modelo }}</p>
+                        <p><b>Sala: </b>{{ item.id_sala }}</p>
+                        <p><b>Bloco: </b></p>
+                        <div class="gaveta">
+                            <p style="text-align: center">Mais</p>
+                            <p>Licença:</p>
+                            <p>IP:</p>
+                            <p>Mac:</p>
+                            <p>Nome:</p>
+                        </div>
                     </div>
-                    <p><b>Descrição: </b>{{ item.descricao }}</p>
-                    <p><b>Marca: </b>{{ item.id_marca }}</p>
-                    <p><b>Modelo: </b>{{ item.id_modelo }}</p>
-                    <p><b>Sala: </b>{{ item.id_sala }}</p>
-                    <p><b>Bloco: </b></p>
-                    <div class="gaveta">
-                        <p style="text-align: center">Mais</p>
-                        <p>Licença:</p>
-                        <p>IP:</p>
-                        <p>Mac:</p>
-                        <p>Nome:</p>
-                    </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
-    </div>
-    <div class="float-menu-cartao">
-        <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #dd4c37"><img src="{% static 'images/delete24.png' %}"/> </div></a>
-        <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #01a75b"><img src="{% static 'images/add24.png' %}"/> </div></a>
-        <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #f39c11"><img src="{% static 'images/edit24.png' %}"/> </div></a>
-    </div>
+        <div class="float-menu-cartao">
+             <button type="submit" value="Submit"><div class="float-menu-cartao-item" style="background: #dd4c37"><img src="{% static 'images/delete24.png' %}"/> </div></button>
+             <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #01a75b"><img src="{% static 'images/add24.png' %}"/> </div></a>
+             <a href="{% url 'CadastroEquipamento' %}"><div class="float-menu-cartao-item" style="background: #f39c11"><img src="{% static 'images/edit24.png' %}"/> </div></a>
+        </div>
+    </form>
 
     <script>
         function check(id) {
             if(document.getElementById(id).checked == false) {
                 document.getElementById('item-' + id).style.backgroundColor = '#9ed0d0';
+                document.getElementById('img-' + id).src="{% static 'images/checkboxchecked24b.png' %}";
             }else{
                 document.getElementById('item-' + id).style.backgroundColor = '#ffffff';
+                document.getElementById('img-' + id).src="{% static 'images/checkboxunchecked24b.png' %}";
             }
         }
     </script>
+
+    <script>
+        function mostrarocultar(mostrar, ocultar){
+            $("#"+mostrar).show(500);
+            document.getElementById(ocultar).style.display = "none";
+        }
+        function ocultarmostrar(mostrar, ocultar){
+            $("#"+ocultar).hide(500);
+            $("#"+mostrar).show(500);
+        }
+        function  mostrar(ID){
+            document.getElementById(ID).style.display = "block";
+
+        }
+        function  ocultar(ID){
+            document.getElementById(ID).style.display = "none";
+            $("#"+ID).hide("slow");
+        }
+    </script>
+
+    {% if messages %}
+        <div class="msg-popup-container">
+            {% for message in messages %}
+                <div id="{{ forloop.counter0 }}" class="msg-popup {{ message.tags }}">
+                    <img src="{% static 'images/'%}{{ message.tags }}.png" alt="" width="70" height="70"/>
+                    <p>{{ message }}</p>
+                    <a onclick="ocultar('{{ forloop.counter0 }}')">x</a>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 {%endblock%}

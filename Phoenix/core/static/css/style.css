@@ -256,6 +256,10 @@ body{
     color: white;
 }
 
+.conteudo-cartao{
+    margin: 10px;
+}
+
 #icone-card{
     width: 70px;
 	border-radius: 50%;
@@ -272,6 +276,38 @@ body{
 }
 
 /* Fim Cartao*/
+
+.container-item-formulario{
+    margin: 0px 30px 10px 30px;
+}
+
+.container-item-formulario label{
+    width: 100%;
+    display: inline-block;
+    font-family: arial;
+    font-size: 14px;
+    color: var(--accent-dark);
+}
+
+.container-item-formulario input{
+    width: 100%;
+    min-width: 250px;
+    display: inline-block;
+    font-family: arial;
+    border-radius: 0px;
+    border: none;
+    border-bottom: 2px solid var(--accent-dark);
+    padding: 10px;
+    text-align: left;
+    border-radius: 0px 0px 3px 3px;
+}
+
+.container-item-formulario input:focus{
+    box-shadow: none;
+    background: #f9f9f9;
+    border-radius: 0px 0px 3px 3px;
+    border-bottom: 3px solid #a5499b;
+}
 
 .navegation-bar a{
 	padding: 5px;
@@ -350,13 +386,9 @@ body{
     z-index: 0;
 }
 
-.item-check{
-    display: none;
-}
-
 .status-container{
     width: 100%;
-    margin-top: -15px;
+    margin-top: -20px;
     text-align: right;
     position: relative;
     z-index: 2;
@@ -365,7 +397,7 @@ body{
 .status{
     width: 25px;
     height: 25px;
-    background: green;
+    background: #01a75b;
     border-radius: 100px;
     margin-right: 5px;
     display: inline-block;
@@ -373,10 +405,50 @@ body{
     cursor: pointer;
 }
 
+.item-checkbox-super{
+    width: 24px;
+    height: 24px;
+    padding: 10px;
+    border-radius: 100%;
+    background: white;
+    display: inline-block;
+    margin-right: 5px;
+    box-shadow: 1px 1px 3px #888;
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+}
+
+.item-checkbox-super:hover{
+    cursor: pointer;
+}
+
+.item-checkbox-super img{
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.item-checkbox-super label{
+    background: green;
+    width: 30px;
+    height: 30px;
+}
+
+.item-checkbox{
+    display: none;
+}
+
+.item-checkbox:checked + .item-checkbox-super{
+    background: #2eaacd;
+    transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+}
+
 .gaveta{
     width: 300px;
     height: 30px;
-    background: var(--primary-light);
     trasition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     overflow: hidden;
@@ -386,8 +458,8 @@ body{
 }
 
 .gaveta:hover{
-    margin-top: -142px;
-    height: 172px;
+    margin-top: -155px;
+    height: 185px;
     background: white;
     cursor: pointer;
 }
@@ -405,6 +477,16 @@ body{
     width: 30px;
     height: 150px;
     position: relative;
+    margin-top: 180px;
+}
+
+.float-menu-cartao button{
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    text-decoration: none;
+    background: none;
+    margin-bottom: -8px;
 }
 
 .float-menu-cartao-item{
@@ -428,4 +510,77 @@ body{
     border: 5px solid white;
     cursor: pointer;
     padding: 10px;
+    transform: rotate(360deg);
+}
+
+.form-geral{
+    width: 100%;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+    justify-content: center;
+    margin: 0px;
+}
+
+.msg-popup-container{
+	position: fixed;
+    top: 150px;
+    right: 5px;
+}
+
+.msg-popup{
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    box-shadow: 1px 1px 7px 0px rgba(0, 0, 0, 0.91);
+    color: white;
+    margin-bottom: 10px;
+    animation-duration: 1s;
+    animation-name: slidein;
+}
+
+.msg-popup img{
+    margin: 10px;
+}
+
+.msg-popup a{
+    margin: 5px;
+    background: rgba(0, 0, 0, 0.39);
+    width: 20px;
+    height: 20px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+}
+
+.msg-popup a:hover{
+    background: red;
+    cursor: pointer;
+}
+
+.msg-popup p{
+    max-width: 230px;
+    text-align: justify;
+}
+
+.success{
+    background: rgba(51, 103, 30, 0.83);
+}
+
+.error{
+    background: rgba(167, 19, 19, 0.83);
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
 }

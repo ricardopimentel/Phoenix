@@ -23,12 +23,37 @@
             </div>
             <form enctype="multipart/form-data" method="POST">{% csrf_token %}
                 {% for item in form %}
-                    <div class="container-item-formulario"><label>{{ item.label }}:</label>{{ item }}</div>
+                    {% if item.label == 'Imagem' %}
+                        <div class="container-item-formulario">
+                            <label>{{ item.label }}:</label>
+                            {{ item }}
+                            <label class="container-item-formulario-imagem" for="id_imagem">Escolha um Arquivo</label>
+                        </div>
+                    {% elif item.label == 'Ativo?' %}
+                        <input class="item-checkbox" id="check-{{ item.id }}" type="checkbox" name="{{ item.id }}" value="{{ item.id }}">
+                            <label class="item-checkbox-super" for="check-{{ item.id }}" onclick="check('{{ item.id }}')">
+                                <div title="Clique para selecionar o equipamento">
+                                    <img id="img-{{ item.id }}" src="{% static 'images/checkboxunchecked24b.png' %}"></img>
+                                </div>
+                            </label>
+                    {% else %}
+                        <div class="container-item-formulario"><label>{{ item.label }}:</label>{{ item }}</div>
+                    {% endif %}
                 {% endfor %}
-                <button type="submit">Salvar</button>
+                <button id="botao" type="submit">Salvar</button>
             </form>
         </div>
     </div>
+
+    <script>
+        function check(id) {
+            if(document.getElementById('check-'+id).checked == false) {
+                document.getElementById('img-' + id).src="{% static 'images/checkboxchecked24b.png' %}";
+            }else{
+                document.getElementById('img-' + id).src="{% static 'images/checkboxunchecked24b.png' %}";
+            }
+        }
+    </script>
 
     <script>
         function mostrarocultar(mostrar, ocultar){

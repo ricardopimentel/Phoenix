@@ -24,11 +24,13 @@ def gerenciar_equipamentos(request):
                 checkboxes.append(request.POST[str(i.id)])
             except:
                 pass
-    if checkboxes:
-        for item in checkboxes:
-            dados.filter(id=item).delete()
+        if checkboxes:
+            for item in checkboxes:
+                dados.get(id=item).delete()
             messages.success(request, "Exclusão Realizada com Sucesso!")
-            return redirect(r('GerenciarEquipamentos'))
+        else:
+            messages.error(request, "Selecione ao menos um equipamento para excluir")
+        return redirect(r('GerenciarEquipamentos'))
     return render(request, 'gerenciar_equipamentos.html', {'dados': dados})
 
 

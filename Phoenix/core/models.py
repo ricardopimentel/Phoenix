@@ -7,7 +7,7 @@ class empresa(models.Model):
     nome_fantasia = models.CharField('Nome Fantasia', max_length=120)
     razao_social = models.CharField('Razão Social', max_length=150)
     cnpj = models.CharField('CNPJ', max_length=20)
-    logo = models.ImageField('Logotipo', upload_to='uploads/', default='uploads/default.png')
+    logo = models.ImageField('Imagem', upload_to='uploads/', default='uploads/default.png')
     slogan = models.CharField('Slogan', max_length=50)
     status = models.BooleanField('Ativo?', default=True)
 

@@ -243,17 +243,17 @@ body{
 }
 
 .menu-cartao input{
-    background: var(--primary-light);
+    background: white;
     margin: 2px;
     border: 1px solid var(--primary-dark);
-    color: white;
+    color: #2b2b2b;
 }
 
 .menu-cartao select{
-    background: var(--primary-light);
+    background: white;
     margin: 2px;
     border: 1px solid var(--primary-dark);
-    color: white;
+    color: #2b2b2b;
 }
 
 .conteudo-cartao{

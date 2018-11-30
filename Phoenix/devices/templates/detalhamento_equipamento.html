@@ -18,40 +18,46 @@
         <div class="conteudo-cartao">
             <img id="icone-card" src="{% static 'images/codigo.png' %}" alt="">
             <h1>{{ titulo }}</h1>
+
             <div class="navegation-bar">
                 <a href="{% url 'Home' %}">Home</a>
             </div>
-            <form enctype="multipart/form-data" method="POST">{% csrf_token %}
-                {% for item in form %}
-                    {% if item.label == 'Imagem' %}
-                        <div class="container-item-formulario">
-                            <label>{{ item.label }}:</label>
-                            {{ item }}
-                            <label class="container-item-formulario-imagem" for="id_imagem">Escolha um Arquivo</label>
-                        </div>
-                    {% elif item.label == 'Ativo?' %}
-                        <div class="container-item-formulario"><label>{{ item.label }}:</label></div>
-                        {{ item }}
-                        <label class="checkbox" for="id_status" onclick="check('id_status')">
-                            <div title="Clique para selecionar o equipamento">
-                                <img id="img_id_status" src="{% static 'images/checkboxchecked24b.png' %}"></img>
-                            </div>
-                        </label>
-                    {% else %}
-                        <div class="container-item-formulario"><label>{{ item.label }}:</label>{{ item }}</div>
-                    {% endif %}
-                {% endfor %}
-                <button id="botao" type="submit">Salvar</button>
-            </form>
+
+            <div class="container-conteudo-cartao">
+                <div class="separador-cartao">
+                    <img src="{{dados.imagem.url }}" width="300">
+                    <p><b>Descrição: </b>{{ dados.descricao }}</p>
+                    <p><b>Marca: </b>{{ dados.id_marca }}</p>
+                    <p><b>Modelo: </b>{{ dados.id_modelo }}</p>
+                    <p><b>Sala: </b>{{ dados.id_sala }}</p>
+                    <p><b>Bloco: </b></p>
+                    <p>Licença:</p>
+                    <p>IP:</p>
+                    <p>Mac:</p>
+                    <p>Nome:</p>
+                </div>
+                <div class="separador-cartao">
+                    <h1>Softwares</h1>
+                    <div class="separador-cartao-secao">
+                        <p>Nome: Libre Office</p>
+                        <p>Descrição: Suite de escritório gratuita contendo editor de texto, planilhas e apresentações</p>
+                        <p>Licença: Livre</p>
+                    </div>
+                </div>
+                <div class="separador-cartao">
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
         function check(id) {
-            if(document.getElementById(id).checked == true) {
-                document.getElementById('img_'+ id).src="{% static 'images/checkboxunchecked24b.png' %}";
+            if(document.getElementById(id).checked == false) {
+                document.getElementById('item-' + id).style.backgroundColor = '#9ed0d0';
+                document.getElementById('img-' + id).src="{% static 'images/checkboxchecked24b.png' %}";
             }else{
-                document.getElementById('img_'+ id).src="{% static 'images/checkboxchecked24b.png' %}";
+                document.getElementById('item-' + id).style.backgroundColor = '#ffffff';
+                document.getElementById('img-' + id).src="{% static 'images/checkboxunchecked24b.png' %}";
             }
         }
     </script>
@@ -87,4 +93,3 @@
         </div>
     {% endif %}
 {%endblock%}
-

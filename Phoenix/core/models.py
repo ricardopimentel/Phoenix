@@ -3,6 +3,11 @@ from __future__ import unicode_literals
 from django.db import models
 
 # Create your models here.
+ARQUITETURA = (
+        ('32', '32 bits'),
+        ('64', '64 bits')
+    )
+
 class empresa(models.Model):
     nome_fantasia = models.CharField('Nome Fantasia', max_length=120)
     razao_social = models.CharField('Razão Social', max_length=150)
@@ -78,7 +83,7 @@ class equipamento(models.Model):
 
 
     def __str__(self):
-        return str(self.descricao)
+        return str(self.descricao+ '-'+ self.id_marca.descricao+ '-'+ self.num_serie)
 
 
 class servico(models.Model):
@@ -91,6 +96,40 @@ class servico(models.Model):
 
     def __str__(self):
         return str(self.descricao)
+
+
+class software(models.Model):
+    nome = models.CharField('Nome do Software', max_length=60)
+    descricao = models.CharField('Descrição', max_length=90)
+    licenca = models.CharField('Chave de Licenciamento', max_length=50, null=True)
+    arquitetura = models.CharField('Arquitetura', max_length=60, choices=ARQUITETURA)
+    status = models.BooleanField('Ativo?', default=True)
+
+
+    def __str__(self):
+        return str(self.descricao)
+
+
+class sistema_operacional(models.Model):
+    nome = models.CharField('Nome do SO', max_length=60)
+    descricao = models.CharField('Descrição', max_length=90)
+    licenca = models.CharField('Chave de Licenciamento', max_length=50, null=True)
+    arquitetura = models.CharField('Arquitetura', max_length=60, choices=ARQUITETURA)
+    status = models.BooleanField('Ativo?', default=True)
+
+
+    def __str__(self):
+        return str(self.descricao)
+
+
+class software_equipamento(models.Model):
+    id_software = models.ForeignKey(software)
+    id_equipamento = models.ForeignKey(equipamento)
+
+
+class sistema_operacional_equipamento(models.Model):
+    id_sistema_operacional = models.ForeignKey(sistema_operacional)
+    id_equipamento = models.ForeignKey(equipamento)
 
 
 class config(models.Model):

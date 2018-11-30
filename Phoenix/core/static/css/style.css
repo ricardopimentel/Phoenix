@@ -260,6 +260,56 @@ body{
     margin: 10px;
 }
 
+.separador-cartao{
+	width:21em;
+	padding: 10px;
+	margin: 5px 10px 5px 10px;
+	display: inline-block;
+    border: 1px solid rgba(0,0,0,.12);
+    background: white;
+}
+
+.separador-cartao img{
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.separador-cartao p{
+    color: #1b1b1b;
+    font-family: 'Roboto', 'Noto', sans-serif;
+    margin: 5px;
+}
+
+.separador-cartao h1{
+    white-space: initial;
+    overflow: initial;
+    text-overflow: initial;
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 400;
+    color: rgba(0,0,0,.87);
+    padding: 24px;
+    overflow-wrap: break-word;
+    font-family: 'Roboto', 'Noto', sans-serif;
+    margin: 0px;
+    text-align: left;
+}
+
+.separador-cartao-secao{
+    border-bottom: 1px solid rgba(0,0,0,.12);
+}
+
+.separador-cartao-secao p{
+    font-family: 'Roboto', 'Noto', sans-serif;
+    font-weight: 400;
+    white-space: initial;
+    overflow: initial;
+    text-overflow: initial;
+    font-size: 15px;
+    line-height: 20px;
+    color: rgba(0,0,0,.87);
+}
+
 #icone-card{
     width: 70px;
 	border-radius: 50%;
@@ -466,6 +516,38 @@ body{
     display: inline-block;
     border: 1px solid white;
     cursor: pointer;
+}
+
+.checkbox{
+    width: 24px;
+    height: 24px;
+    padding: 10px;
+    display: inline-block;
+    margin-right: 5px;
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    margin-left: 15px;
+}
+
+.checkbox:hover{
+    cursor: pointer;
+}
+
+.checkbox img{
+    border: none;
+}
+
+.checkbox label{
+    background: green;
+    width: 30px;
+    height: 30px;
+}
+
+.item-checkbox:checked + .checkbox{
+    transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
 }
 
 .item-checkbox-super{

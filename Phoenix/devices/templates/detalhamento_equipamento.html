@@ -26,25 +26,76 @@
             <div class="container-conteudo-cartao">
                 <div class="separador-cartao">
                     <img src="{{dados.imagem.url }}" width="300">
-                    <p><b>Descrição: </b>{{ dados.descricao }}</p>
-                    <p><b>Marca: </b>{{ dados.id_marca }}</p>
-                    <p><b>Modelo: </b>{{ dados.id_modelo }}</p>
-                    <p><b>Sala: </b>{{ dados.id_sala }}</p>
-                    <p><b>Bloco: </b></p>
-                    <p>Licença:</p>
-                    <p>IP:</p>
-                    <p>Mac:</p>
-                    <p>Nome:</p>
-                </div>
-                <div class="separador-cartao">
-                    <h1>Softwares</h1>
                     <div class="separador-cartao-secao">
-                        <p>Nome: Libre Office</p>
-                        <p>Descrição: Suite de escritório gratuita contendo editor de texto, planilhas e apresentações</p>
-                        <p>Licença: Livre</p>
+                        <p><b>Descrição: </b>{{ dados.descricao }}</p>
+                        <p><b>Marca: </b>{{ dados.id_marca }}</p>
+                        <p><b>Modelo: </b>{{ dados.id_modelo }}</p>
+                        <p><b>Sala: </b>{{ dados.id_sala }}</p>
+                        <p><b>Bloco: </b></p>
+                        <p>IP:</p>
+                        <p>Mac:</p>
+                        <p>Nome:</p>
                     </div>
                 </div>
                 <div class="separador-cartao">
+                    <h1>Serviços</h1>
+                    {% for item in servicos %}
+                         <div class="separador-cartao-secao">
+                            <p>Nome: {{ item.id_servico }}</p>
+                            <p>Descrição: {{ item.id_servico.descricao }}</p>
+                            <p>Licença: {{ item.id_servico.licenca }}</p>
+                        </div>
+                    {% endfor %}
+                    <a href="{% url 'CadastroServicoEquipamento' %}">
+                        <div class="fab-mini">
+                            <img src="{% static 'images/add24.png' %}">
+                        </div>
+                    </a>
+                </div>
+                <div class="separador-cartao">
+                    <h1>Sistemas Operacionais</h1>
+                    {% for item in sos %}
+                        <div class="separador-cartao-secao">
+                            <p>Nome: {{ item.id_sistema_operacional }}</p>
+                            <p>Descrição: {{ item.id_sistema_operacional.descricao }}</p>
+                            <p>Licença: {{ item.id_sistema_operacional.licenca }}</p>
+                        </div>
+                    {% endfor %}
+                    <a href="{% url 'CadastroSistemaOperacionalEquipamento' %}">
+                        <div class="fab-mini">
+                            <img src="{% static 'images/add24.png' %}">
+                        </div>
+                    </a>
+                </div>
+                <div class="separador-cartao">
+                    <h1>Softwares</h1>
+                    {% for item in softwares %}
+                        <div class="separador-cartao-secao">
+                            <p>Nome: {{ item.id_software }}</p>
+                            <p>Descrição: {{ item.id_software.descricao }}</p>
+                            <p>Licença: {{ item.id_software.licenca }}</p>
+                        </div>
+                    {% endfor %}
+                    <a href="{% url 'CadastroSoftwareEquipamento' %}">
+                        <div class="fab-mini">
+                            <img src="{% static 'images/add24.png' %}">
+                        </div>
+                    </a>
+                </div>
+                <div class="separador-cartao">
+                    <h1>Virtualizações</h1>
+                    {% for item in virtualizacoes %}
+                        <div class="separador-cartao-secao">
+                            <p>Nome: {{ item.id_virtualizacao }}</p>
+                            <p>IP: {{ item.id_virtualizacao.ip }}</p>
+                            <p>SO: {{ item.id_virtualizacao.id_sistema_operacional }}</p>
+                        </div>
+                    {% endfor %}
+                    <a href="{% url 'CadastroVirtualizacaoEquipamento' %}">
+                        <div class="fab-mini">
+                            <img src="{% static 'images/add24.png' %}">
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

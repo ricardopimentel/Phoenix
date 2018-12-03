@@ -12,6 +12,11 @@ urlpatterns = [
     url(r'^cadastro_servico/$', views.cadastro_servico, name='CadastroServico'),
     url(r'^cadastro_software/$', views.cadastro_software, name='CadastroSoftware'),
     url(r'^cadastro_sistema_operacional/$', views.cadastro_sistema_operacional, name='CadastroSistemaOperacional'),
+    url(r'^cadastro_virtualizacao/$', views.cadastro_virtualizacao, name='CadastroVirtualizacao'),
+    url(r'^cadastro_virtualizacao_equipamento/$', views.cadastro_virtualizacao_equipamento, name='CadastroVirtualizacaoEquipamento'),
+    url(r'^cadastro_servico_equipamento/$', views.cadastro_servico_equipamento, name='CadastroServicoEquipamento'),
+    url(r'^cadastro_software_equipamento/$', views.cadastro_software_equipamento, name='CadastroSoftwareEquipamento'),
+    url(r'^cadastro_sistema_operacional_equipamento/$', views.cadastro_sistema_operacional_equipamento, name='CadastroSistemaOperacionalEquipamento'),
     url(r'^gerenciar_equipamentos/$', views.gerenciar_equipamentos, name='GerenciarEquipamentos'),
     url(r'^detalhamento_equipamento/(?P<id_equipamento>.+)$', views.detalhamento_equipamento, name='DetalhamentoEquipamento'),
 ]

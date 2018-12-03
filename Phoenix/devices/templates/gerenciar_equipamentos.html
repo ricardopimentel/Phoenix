@@ -38,7 +38,7 @@
                 {% for item in dados %}
                     <div id="item-{{ item.id }}" class="item-container">
                         <div class="personal-checkbox"></div>
-                        <img src="{{item.imagem.url }}">
+                        <a href="{% url 'DetalhamentoEquipamento' item.id %}"><img src="{{item.imagem.url }}"></a>
                         <div class="status-container">
                             <div class="status" title="Status: Online"></div>
                             <input class="item-checkbox" id="{{ item.id }}" type="checkbox" name="{{ item.id }}" value="{{ item.id }}">

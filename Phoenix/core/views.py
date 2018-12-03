@@ -11,5 +11,8 @@ def home(request):
         {'titulo': 'Cadastro de Modelo', 'url': r('CadastroModelo')},
         {'titulo': 'Cadastro de Equipamento', 'url': r('CadastroEquipamento')},
         {'titulo': 'Cadastro de Serviço', 'url': r('CadastroServico')},
+        {'titulo': 'Cadastro de Sistema Operacional', 'url': r('CadastroSistemaOperacional')},
+        {'titulo': 'Cadastro de Software', 'url': r('CadastroSoftware')},
+        {'titulo': 'Cadastro de Virtualização', 'url': r('CadastroVirtualizacao')},
     )}
     return render(request, 'index.html', parametros)

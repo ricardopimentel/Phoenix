@@ -262,11 +262,12 @@ body{
 
 .separador-cartao{
 	width:21em;
-	padding: 10px;
+    padding: 10px 10px 45px 10px;
 	margin: 5px 10px 5px 10px;
 	display: inline-block;
     border: 1px solid rgba(0,0,0,.12);
     background: white;
+    position: relative;
 }
 
 .separador-cartao img{
@@ -297,6 +298,7 @@ body{
 
 .separador-cartao-secao{
     border-bottom: 1px solid rgba(0,0,0,.12);
+    margin-bottom: 15px;
 }
 
 .separador-cartao-secao p{
@@ -308,6 +310,20 @@ body{
     font-size: 15px;
     line-height: 20px;
     color: rgba(0,0,0,.87);
+    text-align: justify;
+}
+
+.fab-mini{
+    position: absolute;
+    padding: 5px;
+    background: #01a75b;
+    bottom: 15px;
+    right: 15px;
+    border-radius: 100%;
+}
+
+.fab-mini img{
+    border: none;
 }
 
 #icone-card{
